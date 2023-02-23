@@ -25,6 +25,7 @@ public class PostModels implements Serializable {
     private String nombre;
     private String descripcionCorta;
     private String contenido;
+    private String imagen;
     private Date fecha;
     
     public String getUsername() {
@@ -73,6 +74,14 @@ public class PostModels implements Serializable {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
     
 }
