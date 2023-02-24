@@ -14,18 +14,5 @@ public class LoginController {
     @Autowired
     private LoginServices loginService;
 
-    @GetMapping("/login")
-    public ModelAndView login() {
-
-    }
-
-    @PostMapping("/login")
-    public String login(@ModelAttribute("user") LoginModels user) {
-        
-        LoginModels authUser = loginService.login(user.getUsername(), user.getPassword());
-
-        if(Objects.nonNull(authUser)) {
-            return 
-        }
-    }
+    
 }
