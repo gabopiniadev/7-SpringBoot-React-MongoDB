@@ -9,6 +9,7 @@ const Write = () => {
   const state = useLocation().state;
   const [value, setValue] = useState(state?.title || "");
   const [title, setTitle] = useState(state?.desc || "");
+  const [imagen, setImagen] = useState(state?.imagen || "");
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState(state?.cat || "");
 
@@ -18,7 +19,7 @@ const Write = () => {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const res = await axios.post("/upload", formData);
+      const res = await axios.post("http://localhost:8282/api/upload", formData);
       return res.data;
     } catch (err) {
       console.log(err);
@@ -31,14 +32,16 @@ const Write = () => {
 
     try {
       state
-        ? await axios.put(`/posts/${state.id}`, {
+        ? await axios.put(`http://localhost:8282/api/posts/${state.id}`, {
             title,
+            imagen,
             desc: value,
             cat,
             img: file ? imgUrl : "",
           })
-        : await axios.post(`/posts/`, {
+        : await axios.post(`http://localhost:8282/api/posts/`, {
             title,
+            imagen,
             desc: value,
             cat,
             img: file ? imgUrl : "",
@@ -57,6 +60,11 @@ const Write = () => {
           type="text"
           placeholder="Title"
           onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="URL Imagen"
+          onChange={(e) => setImagen(e.target.value)}
         />
         <div className="editorContainer">
           <ReactQuill
@@ -83,11 +91,8 @@ const Write = () => {
             name=""
             onChange={(e) => setFile(e.target.files[0])}
           />
-          <label className="file" htmlFor="file">
-            Upload Image
-          </label>
+          
           <div className="buttons">
-            <button>Save as a draft</button>
             <button onClick={handleClick}>Publish</button>
           </div>
         </div>

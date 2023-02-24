@@ -17,7 +17,7 @@ import org.springframework.http.HttpStatus;
 import com.backend.Models.PostModels;
 import com.backend.Services.PostServices;
 
-@CrossOrigin(origins = { "http://localhost:4200" })
+@CrossOrigin(origins = { "http://localhost:3000" })
 @RestController
 @RequestMapping("/api")
 public class PostController {
@@ -52,7 +52,6 @@ public class PostController {
 		PostModels articles = this.postService.findById(id);
 		articles.setUsername(post.getUsername());
 		articles.setNombre(post.getNombre()); //Titulo del articulo!
-		articles.setDescripcionCorta(post.getDescripcionCorta());
 		articles.setContenido(post.getContenido());
 		articles.setImagen(post.getImagen());
 		this.postService.save(articles);

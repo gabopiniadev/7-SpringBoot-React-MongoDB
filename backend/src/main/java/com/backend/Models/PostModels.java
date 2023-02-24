@@ -1,7 +1,6 @@
 package com.backend.Models;
 
 import java.io.Serializable;
-import java.util.Date;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,10 +22,9 @@ public class PostModels implements Serializable {
 
     private String username;
     private String nombre;
-    private String descripcionCorta;
     private String contenido;
+    private String cat;
     private String imagen;
-    private Date fecha;
     
     public String getUsername() {
         return username;
@@ -44,16 +42,8 @@ public class PostModels implements Serializable {
         return nombre;
     }
 
-    public String getDescripcionCorta() {
-        return descripcionCorta;
-    }
-
     public String getContenido() {
         return contenido;
-    }
-
-    public Date getFecha() {
-        return fecha;
     }
     
     public void setId(Long id) {
@@ -64,16 +54,8 @@ public class PostModels implements Serializable {
         this.nombre = nombre;
     }
 
-    public void setDescripcionCorta(String descripcionCorta) {
-        this.descripcionCorta = descripcionCorta;
-    }
-
     public void setContenido(String contenido) {
         this.contenido = contenido;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
     }
 
     public String getImagen() {
@@ -83,5 +65,14 @@ public class PostModels implements Serializable {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
+
+    public String getCat() {
+        return cat;
+    }
+
+    public void setCat(String cat) {
+        this.cat = cat;
+    }
+
     
 }

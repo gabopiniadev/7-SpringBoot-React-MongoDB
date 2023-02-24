@@ -20,7 +20,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/auth/register", inputs);
+      await axios.post("http://localhost:8282/api/register", inputs);
       navigate("/login");
     } catch (err) {
       setError(err.response.data);
@@ -29,7 +29,7 @@ const Register = () => {
 
   return (
     <div className="auth">
-      <h1>Register</h1>
+      <h1>Registrate</h1>
       <form>
         <input
           required
