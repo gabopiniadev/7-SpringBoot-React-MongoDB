@@ -12,8 +12,9 @@ public class LoginServices {
     @Autowired
     private LoginRepository loginRepository;
 
-    public LoginModels findbyUsernameAndPassword(String username, String password) {
-        return loginRepository.findByUsernameAndPassword(username, password);
+    public LoginModels login(String username, String password) {
+        LoginModels user = loginRepository.findByUsernameAndPassword(username, password);
+        return user;
     }
     
 }

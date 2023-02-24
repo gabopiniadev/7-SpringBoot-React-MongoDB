@@ -1,18 +1,30 @@
 package com.backend.Models;
 
 import java.io.Serializable;
-import java.util.Date;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 
 
 @Entity
 @Table(name = "users")
 public class LoginModels implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String username;
     private String password;
-    private Date fechaActual;
+
+    public LoginModels() {
+
+    }
+
+    public LoginModels(Long id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
     
     public String getUsername() {
         return username;
@@ -30,12 +42,12 @@ public class LoginModels implements Serializable {
         this.password = password;
     }
 
-    public Date getFechaActual() {
-        return fechaActual;
+    public Long getId() {
+        return id;
     }
 
-    public void setFechaActual(Date fechaActual) {
-        this.fechaActual = fechaActual;
+    public void setId(Long id) {
+        this.id = id;
     }
     
 }
