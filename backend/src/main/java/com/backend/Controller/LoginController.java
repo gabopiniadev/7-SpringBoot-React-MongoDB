@@ -1,6 +1,5 @@
 package com.backend.Controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.backend.Models.LoginModels;
@@ -17,7 +16,7 @@ public class LoginController {
 
     @GetMapping("/login/{username}")
 	public LoginModels show(@RequestParam String username) {
-		return this.loginService.loadUserByUsername(username);
+		return loginService.loadUserByUsername(username);
 	}
 
     

@@ -14,7 +14,6 @@ public class LoginServices{
     public LoginModels loadUserByUsername(String username) {
        
         return loginRepository.findByUsername(username);
-        
 
     }
 
