@@ -7,8 +7,9 @@ import moment from "moment";
 
 const Write = () => {
   const state = useLocation().state;
-  const [value, setValue] = useState(state?.title || "");
-  const [title, setTitle] = useState(state?.desc || "");
+  const [username, setUsername] = useState(state?.username || "");
+  const [nombre, setNombre] = useState(state?.nombre || "");
+  const [contenido, setContenido] = useState(state?.contenido || "");
   const [imagen, setImagen] = useState(state?.imagen || "");
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState(state?.cat || "");
@@ -19,7 +20,7 @@ const Write = () => {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const res = await axios.post("http://localhost:8282/api/upload", formData);
+      const res = await axios.post("http://localhost:8282/api/article", formData);
       return res.data;
     } catch (err) {
       console.log(err);
@@ -32,17 +33,19 @@ const Write = () => {
 
     try {
       state
-        ? await axios.put(`http://localhost:8282/api/posts/${state.id}`, {
-            title,
+        ? await axios.put(`http://localhost:8282/api/article/${state.id}`, {
+            nombre,
+            username,
             imagen,
-            desc: value,
+            contenido,
             cat,
             img: file ? imgUrl : "",
           })
-        : await axios.post(`http://localhost:8282/api/posts/`, {
-            title,
+        : await axios.post(`http://localhost:8282/api/article`, {
+          nombre,
+            username,
             imagen,
-            desc: value,
+            contenido,
             cat,
             img: file ? imgUrl : "",
             date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
@@ -58,8 +61,13 @@ const Write = () => {
       <div className="content">
         <input
           type="text"
-          placeholder="Title"
-          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Titulo"
+          onChange={(e) => setNombre(e.target.value)}
+        />
+        <input 
+        type="text"
+        placeholder="Username"
+        onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="text"
@@ -70,8 +78,8 @@ const Write = () => {
           <ReactQuill
             className="editor"
             theme="snow"
-            value={value}
-            onChange={setValue}
+            value={contenido}
+            onChange={setContenido}
           />
         </div>
       </div>
