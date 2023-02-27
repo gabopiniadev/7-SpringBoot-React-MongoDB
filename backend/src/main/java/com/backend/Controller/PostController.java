@@ -9,8 +9,8 @@ import com.backend.Models.PostModels;
 import com.backend.Services.PostServices;
 
 @CrossOrigin(origins = { "http://localhost:3000" })
-@RequestMapping("/api")
 @RestController
+@RequestMapping("/api")
 public class PostController {
 
     @Autowired

@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Backendv2Application",
+            "request": "launch",
+            "mainClass": "com.example.backendv2.Backendv2Application",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "Launch Backendv2Application",
+            "request": "launch",
+            "mainClass": "com.backendv2.Backendv2Application",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
