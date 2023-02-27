@@ -11,19 +11,8 @@ public class RegisterServices {
     @Autowired 
     RegisterRepository registerRepository;
 
-    public Iterable<RegisterModels> listAll() {
-        return this.registerRepository.findAll();
-    }
-
     public void save(RegisterModels users) {
 		registerRepository.save(users);
 	}
 
-	public RegisterModels findById(Long id) {
-		return registerRepository.findById(id).orElse(null);
-	}
-
-	public void delete(RegisterModels users) {
-		registerRepository.delete(users);
-	}   
 }

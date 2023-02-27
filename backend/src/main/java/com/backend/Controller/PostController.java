@@ -16,6 +16,12 @@ public class PostController {
     @Autowired
     private PostServices postService;
 
+	//Encargado de obtener la informacion del usuario mediante el username
+    @GetMapping("/article/{username}")
+	public PostModels show(@PathVariable String username) {
+		return this.postService.loadUserByUsername(username);
+	}
+
 	//Esta funcion se encarga de obtener todos los resultados almacenados en la base de datos.
 	@GetMapping("/articles")
 	public List<PostModels> index() {

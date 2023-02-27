@@ -5,5 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.backend.Models.PostModels;
 
 public interface PostRepository extends CrudRepository<PostModels, Long> {
+
+    PostModels findByUsername(String username);
     
 }

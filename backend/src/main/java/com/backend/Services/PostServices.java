@@ -14,20 +14,26 @@ public class PostServices {
     @Autowired
     private PostRepository postRepository;
 
+	public PostModels loadUserByUsername(String username) {
+       
+        return postRepository.findByUsername(username);
+
+    }
+
     public List<PostModels> findAll() {
 		return (List<PostModels>) postRepository.findAll();
 	}
 
-	public void save(PostModels clients) {
-		postRepository.save(clients);
+	public void save(PostModels post) {
+		postRepository.save(post);
 	}
 
 	public PostModels findById(Long id) {
 		return postRepository.findById(id).orElse(null);
 	}
 
-	public void delete(PostModels clients) {
-		postRepository.delete(clients);
+	public void delete(PostModels post) {
+		postRepository.delete(post);
 	}
     
 }

@@ -1,5 +1,7 @@
 package com.backend.Services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +19,8 @@ public class LoginServices {
 
     }
 
-    public Iterable<LoginModels> listAll() {
-        return this.loginRepository.findAll();
+    public List<LoginModels> findAll() {
+        return (List<LoginModels>) loginRepository.findAll();
     }
 
     public void save(LoginModels username) {
