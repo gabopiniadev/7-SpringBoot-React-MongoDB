@@ -6,6 +6,6 @@ import com.backend.Models.PostModels;
 
 public interface PostRepository extends CrudRepository<PostModels, Long> {
 
-    PostModels findByUsername(String username);
+    PostModels findByUser(String username);
     
 }

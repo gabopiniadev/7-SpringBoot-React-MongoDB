@@ -16,7 +16,7 @@ public class PostServices {
 
 	public PostModels loadUserByUsername(String username) {
        
-        return postRepository.findByUsername(username);
+        return postRepository.findByUser(username);
 
     }
 
