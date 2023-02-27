@@ -6,7 +6,6 @@ import { AuthContext } from "../context/authContext";
 const Login = () => {
   const [inputs, setInputs] = useState({
     username: "",
-    password: "",
   });
   const [err, setError] = useState(null);
 

@@ -9,7 +9,7 @@ export const AuthContexProvider = ({ children }) => {
   );
 
   const login = async (inputs) => {
-    const res = await axios.get("http://localhost:8282/api/login/{username}", inputs);
+    const res = await axios.get(`http://localhost:8282/api/log/`, inputs);
     setCurrentUser(res.data);
   };
 

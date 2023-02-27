@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:8282/api/articles${cat}`);
+        const res = await axios.get(`/post/${cat}`);
         setPosts(res.data);
       } catch (err) {
         console.log(err);
@@ -36,7 +36,7 @@ const Home = () => {
               <img src={post.imagen} alt="" />
             </div>
             <div className="content">
-              <Link className="link" to={`http://localhost:8282/api/article/${post.id}`}>
+              <Link className="link" to={`/post/${post.id}`}>
                 <h1>{post.nombre}</h1>
               </Link>
               <p>{getText(post.contenido)}</p>
