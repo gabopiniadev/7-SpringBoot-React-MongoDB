@@ -14,11 +14,11 @@ public class PostServices {
     @Autowired
     private PostRepository postRepository;
 
-	public PostModels loadUserByUsername(String username) {
+	/*public PostModels loadUserByUsername(String username) {
        
         return postRepository.findByUser(username);
 
-    }
+    }*/
 
     public List<PostModels> findAll() {
 		return (List<PostModels>) postRepository.findAll();

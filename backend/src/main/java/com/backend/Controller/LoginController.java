@@ -27,7 +27,7 @@ public class LoginController {
     private LoginServices loginService;
 
     //Encargado de obtener la informacion del usuario mediante el username
-    @GetMapping("/login/{username}")
+    @GetMapping("/log/{username}")
 	public LoginModels show(@PathVariable String username) {
 		return this.loginService.loadUserByUsername(username);
 	}
